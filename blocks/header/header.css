@@ -4,6 +4,7 @@ header .nav-wrapper {
   width: 100%;
   z-index: 2;
   position: fixed;
+  top: var(--nav-top-bar-height, 36px);
 }
 
 header nav {
@@ -33,6 +34,7 @@ header nav[aria-expanded='true'] {
 @media (width >= 900px) {
   header .nav-wrapper {
     position: relative;
+    top: 0;
   }
 
   header nav {
@@ -54,7 +56,65 @@ header nav p {
   line-height: 1;
 }
 
-header nav a:any-link {
+/* Personal/Business top bar */
+header .nav-top-bar {
+  background-color: #002979;
+  width: 100%;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+}
+
+header .nav-top-bar-inner {
+  max-width: 1264px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+header .nav-top-bar ul {
+  list-style: none;
+  display: flex;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+header .nav-top-bar li {
+  margin: 0;
+}
+
+header .nav-top-bar-inner a {
+  display: block;
+  padding: 8px 16px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: var(--body-font-family);
+}
+
+header .nav-top-bar-inner a:hover {
+  text-decoration: underline;
+}
+
+header .nav-top-bar a.nav-top-bar-active {
+  background-color: #fff;
+  color: #002979;
+  font-weight: 600;
+}
+
+@media (width >= 900px) {
+  header .nav-top-bar {
+    position: relative;
+  }
+
+  header .nav-top-bar-inner {
+    padding: 0 32px;
+  }
+}
+
+header nav .nav-brand a:any-link,
+header nav .nav-sections a:any-link,
+header nav .nav-tools a:any-link {
   color: currentcolor;
 }
 

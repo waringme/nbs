@@ -164,8 +164,20 @@ export default async function decorate(block) {
   toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
+  // Personal/Business top bar above masthead
+  const topBar = document.createElement('div');
+  topBar.className = 'nav-top-bar';
+  const topBarInner = document.createElement('div');
+  topBarInner.className = 'nav-top-bar-inner';
+  topBarInner.innerHTML = `<ul>
+    <li><a href="/" class="nav-top-bar-active">Personal</a></li>
+    <li><a href="https://www.nationwide.co.uk/business">Business</a></li>
+  </ul>`;
+  topBar.append(topBarInner);
+
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
+  block.append(topBar);
   block.append(navWrapper);
 }
