@@ -344,3 +344,38 @@ header nav .nav-sections ul > li > ul > li {
 header nav .nav-tools {
   grid-area: tools;
 }
+
+header nav .nav-tools .default-content-wrapper ul {
+  list-style: none;
+  display: flex;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+}
+
+header nav .nav-tools .default-content-wrapper li {
+  margin: 0;
+}
+
+header nav .nav-tools .default-content-wrapper a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 12px;
+  font-size: 12px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+header nav .nav-tools .default-content-wrapper a:hover {
+  background-color: rgb(255 255 255 / 10%);
+}
+
+header nav .nav-tools .default-content-wrapper img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
