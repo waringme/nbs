@@ -36,8 +36,8 @@
   --heading-font-size-s: 24px;
   --heading-font-size-xs: 22px;
 
-  /* nav height */
-  --nav-height: 64px;
+  /* nav height - top bar (~36px) + masthead row (~64px) + nav links row (~48px) */
+  --nav-height: 148px;
 }
 
 /* fallback fonts */
