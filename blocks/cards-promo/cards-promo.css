@@ -27,6 +27,7 @@
 
 .cards-promo .cards-promo-card-body {
   padding: 24px;
+  color: var(--text-color);
 }
 
 .cards-promo .cards-promo-card-body h2 {
