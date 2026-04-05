@@ -1,11 +1,10 @@
-/* Full-width dark section */
-.columns-split-container {
-  background-color: #011546;
-  color: #fff;
-}
-
-.columns-split-container .columns-split-wrapper {
-  max-width: unset;
+/* Light blue background section */
+.columns-split-wrapper {
+  background-color: #e8f0fe;
+  color: var(--text-color);
+  position: relative;
+  z-index: 2;
+  max-width: unset !important;
   padding: 48px calc(max(32px, (100vw - 1264px) / 2 + 32px));
 }
 
@@ -24,19 +23,19 @@
   font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 400;
-  color: #fff;
+  color: var(--text-color);
   margin: 0 0 16px;
 }
 
 .columns-split p {
-  color: #fff;
+  color: var(--text-color);
   font-size: 16px;
   line-height: 1.6;
   margin: 0 0 12px;
 }
 
 .columns-split p a {
-  color: #fff;
+  color: var(--link-color);
   text-decoration: underline;
 }
 
@@ -48,27 +47,27 @@
 .columns-split a.button {
   display: inline-block;
   padding: 12px 24px;
-  border: 2px solid #fff;
+  border: 2px solid var(--text-color);
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
-  color: #fff;
+  color: var(--text-color);
   background-color: transparent;
   transition: background-color 0.2s;
 }
 
 .columns-split a.button:hover {
-  background-color: rgb(255 255 255 / 10%);
+  background-color: rgb(0 0 0 / 5%);
 }
 
 .columns-split a.button.primary {
-  background-color: #fff;
-  color: #011546;
+  background-color: var(--text-color);
+  color: #fff;
 }
 
 .columns-split a.button.primary:hover {
-  background-color: #e8e8f0;
+  background-color: #333;
 }
 
 /* Links list */
@@ -83,7 +82,7 @@
 }
 
 .columns-split li a {
-  color: #fff;
+  color: var(--link-color);
   text-decoration: none;
   font-size: 16px;
 }
@@ -92,7 +91,7 @@
   text-decoration: underline;
 }
 
-/* Divider between columns */
+/* Divider between columns on desktop */
 @media (width >= 900px) {
   .columns-split > div {
     flex-direction: row;
@@ -107,7 +106,7 @@
   }
 
   .columns-split > div > div:first-child {
-    border-right: 1px solid rgb(255 255 255 / 20%);
+    border-right: 1px solid rgb(0 0 0 / 10%);
     padding-left: 0;
   }
 
