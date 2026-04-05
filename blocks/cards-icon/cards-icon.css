@@ -1,20 +1,32 @@
-/* Section - white background like original */
-.cards-icon-container {
+/* Target the section containing cards-icon and give it white background */
+.section:has(.cards-icon) {
   background-color: #fff !important;
   color: var(--text-color);
   position: relative;
   z-index: 1;
 }
 
-/* Section heading - "What are you looking for today?" */
-.cards-icon-container .default-content-wrapper h2 {
+/* Heading above the block in same section */
+.section:has(.cards-icon) > .default-content-wrapper {
+  max-width: 1264px;
+  margin: 0 auto;
+  padding: 48px 32px 0;
+}
+
+.section:has(.cards-icon) > .default-content-wrapper h2 {
   font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(1.75rem, 3vw, 2.25rem);
   font-weight: 400;
   text-align: center;
   margin: 0 0 48px;
-  padding-top: 48px;
   color: var(--text-color);
+}
+
+/* Block wrapper */
+.cards-icon-wrapper {
+  max-width: 1264px;
+  margin: 0 auto;
+  padding: 0 32px 48px;
 }
 
 .cards-icon > ul {
