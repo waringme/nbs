@@ -4,7 +4,8 @@
   font-size: clamp(1.75rem, 3vw, 2.25rem);
   font-weight: 400;
   text-align: center;
-  margin: 0 0 32px;
+  margin: 0 0 48px;
+  padding-top: 48px;
   color: var(--text-color);
 }
 
