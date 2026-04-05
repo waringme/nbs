@@ -171,16 +171,6 @@ header nav .nav-tools .default-content-wrapper a {
   transition: background-color 0.2s;
 }
 
-header nav .nav-tools .default-content-wrapper a:hover {
-  background-color: rgb(255 255 255 / 10%);
-}
-
-header nav .nav-tools .default-content-wrapper img {
-  width: 24px;
-  height: 24px;
-  filter: brightness(0) invert(1);
-}
-
 /* Log in button */
 header nav .nav-tools .nav-login a {
   flex-direction: row;
@@ -193,8 +183,18 @@ header nav .nav-tools .nav-login a {
   white-space: nowrap;
 }
 
+header nav .nav-tools .default-content-wrapper a:hover {
+  background-color: rgb(255 255 255 / 10%);
+}
+
 header nav .nav-tools .nav-login a:hover {
   background-color: rgb(255 255 255 / 15%);
+}
+
+header nav .nav-tools .default-content-wrapper img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
 }
 
 /* Row 2: Sections - dropdown navigation links */
@@ -209,21 +209,21 @@ header nav[aria-expanded='true'] .nav-sections {
   visibility: visible;
 }
 
-header nav .nav-sections ul {
+header nav .nav-sections .default-content-wrapper ul {
   list-style: none;
   padding-left: 0;
   font-size: 16px;
 }
 
-header nav .nav-sections ul > li {
+header nav .nav-sections .default-content-wrapper ul > li {
   font-weight: 500;
 }
 
-header nav .nav-sections ul > li > ul {
+header nav .nav-sections .default-content-wrapper ul > li > ul {
   margin-top: 0;
 }
 
-header nav .nav-sections ul > li > ul > li {
+header nav .nav-sections .default-content-wrapper ul > li > ul > li {
   font-weight: 400;
 }
 
