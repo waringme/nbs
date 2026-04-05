@@ -1,6 +1,9 @@
 /* Section - white background like original */
 .cards-icon-container {
-  background-color: #fff;
+  background-color: #fff !important;
+  color: var(--text-color);
+  position: relative;
+  z-index: 1;
 }
 
 /* Section heading - "What are you looking for today?" */
