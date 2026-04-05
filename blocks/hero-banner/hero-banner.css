@@ -5,27 +5,26 @@
 
 .hero-banner {
   position: relative;
-  min-height: 500px;
   overflow: hidden;
   background-color: #011546;
 }
 
 .hero-banner img {
   width: auto;
-  max-width: 50%;
+  max-width: 45%;
   height: auto;
   max-height: 100%;
   object-fit: contain;
 }
 
-/* Heading - uses serif/italic like Nationwide's "A good way to bank" */
+/* Heading - serif italic like Nationwide's "A good way to bank" */
 .hero-banner h2 {
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 1.2;
   color: #fff;
-  margin: 0 0 20px;
+  margin: 0 0 16px;
 }
 
 .hero-banner h2 em {
@@ -35,72 +34,74 @@
 /* Body text */
 .hero-banner p {
   font-family: var(--body-font-family);
-  font-size: var(--body-font-size-s);
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.5;
   color: #fff;
-  margin: 0 0 10px;
+  margin: 0 0 8px;
 }
 
-/* CTA button */
+/* CTA button - outline style like original */
 .hero-banner a {
   display: inline-block;
-  margin-top: 16px;
-  padding: 12px 24px;
-  background-color: #fff;
-  color: #011546;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #fff;
   text-decoration: none;
+  border: 2px solid #fff;
   border-radius: 4px;
   font-family: var(--body-font-family);
-  font-size: var(--body-font-size-xs);
+  font-size: 16px;
   font-weight: 500;
   transition: background-color 0.2s;
 }
 
 .hero-banner a:hover {
-  background-color: #e8e8f0;
+  background-color: rgb(255 255 255 / 15%);
 }
 
-/* Row layout - use display:contents so children participate in hero grid */
+/* Row layout */
 .hero-banner > div {
   display: contents;
 }
 
-/* Text content row - overlays image */
+/* Text content - overlays image */
 .hero-banner > div:last-child {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 60px 24px;
-  min-height: 500px;
-  max-width: 1200px;
+  padding: 40px 24px;
+  min-height: 380px;
+  max-width: 1264px;
   margin: 0 auto;
 }
 
 .hero-banner > div:last-child > div {
-  max-width: 55%;
+  max-width: 48%;
 }
 
-/* Image row container - positioned behind text */
+/* Image container - right side */
 .hero-banner > div:first-child > div {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  padding-right: 5%;
 }
 
-/* Mobile: stack content above image */
+/* Mobile: stack vertically */
 @media (width < 900px) {
   .hero-banner img {
-    max-width: 80%;
+    max-width: 70%;
     margin: 0 auto;
   }
 
   .hero-banner > div:last-child {
     min-height: unset;
-    padding: 24px;
+    padding: 32px 24px;
   }
 
   .hero-banner > div:last-child > div {
@@ -110,5 +111,12 @@
   .hero-banner > div:first-child > div {
     position: relative;
     justify-content: center;
+    padding-right: 0;
+  }
+}
+
+@media (width >= 900px) {
+  .hero-banner > div:last-child {
+    padding: 40px 32px;
   }
 }
