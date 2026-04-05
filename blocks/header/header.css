@@ -102,6 +102,19 @@ header .nav-top-bar a.nav-top-bar-active {
   font-weight: 600;
 }
 
+header .nav-top-bar .nav-top-bar-demo {
+  margin-left: auto;
+}
+
+header .nav-top-bar .nav-top-bar-demo span {
+  display: block;
+  padding: 8px 16px;
+  color: #fff;
+  font-size: 14px;
+  font-family: var(--body-font-family);
+  opacity: 0.8;
+}
+
 @media (width >= 900px) {
   header .nav-top-bar {
     position: relative;

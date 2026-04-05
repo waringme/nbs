@@ -172,6 +172,7 @@ export default async function decorate(block) {
   topBarInner.innerHTML = `<ul>
     <li><a href="/" class="nav-top-bar-active">Personal</a></li>
     <li><a href="https://www.nationwide.co.uk/business">Business</a></li>
+    <li class="nav-top-bar-demo"><span>Demo Website for Nationwide</span></li>
   </ul>`;
   topBar.append(topBarInner);
 
