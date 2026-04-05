@@ -1,3 +1,13 @@
+/* Section - dark background continuous from hero */
+.cards-icon-container {
+  background-color: #011546;
+}
+
+.cards-icon-container .cards-icon-wrapper {
+  max-width: 1264px;
+  margin: 0 auto;
+}
+
 /* Section heading - "What are you looking for today?" */
 .cards-icon-container .default-content-wrapper h2 {
   font-family: Georgia, 'Times New Roman', serif;
@@ -6,7 +16,7 @@
   text-align: center;
   margin: 0 0 48px;
   padding-top: 48px;
-  color: var(--text-color);
+  color: #fff;
 }
 
 .cards-icon > ul {
@@ -46,7 +56,7 @@
 
 .cards-icon .cards-icon-card-body a {
   font-size: 14px;
-  color: var(--text-color);
+  color: #fff;
   text-decoration: none;
   font-weight: 500;
 }
