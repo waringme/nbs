@@ -124,6 +124,7 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
+  // Standard 3-section structure: brand, sections, tools
   const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
@@ -132,31 +133,24 @@ export default async function decorate(block) {
 
   // Strip button classes from brand
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
-  if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
+  if (navBrand) {
+    const brandLink = navBrand.querySelector('.button');
+    if (brandLink) {
+      brandLink.className = '';
+      brandLink.closest('.button-container').className = '';
+    }
   }
 
-  // Strip button classes from tools
-  const navTools = nav.querySelector('.nav-tools');
-  if (navTools) {
-    navTools.querySelectorAll('.button').forEach((button) => {
-      button.className = '';
-      const buttonContainer = button.closest('.button-container');
-      if (buttonContainer) buttonContainer.className = '';
-    });
-  }
+  // Strip button classes from sections and tools
+  nav.querySelectorAll('.nav-sections .button, .nav-tools .button').forEach((button) => {
+    button.className = '';
+    const buttonContainer = button.closest('.button-container');
+    if (buttonContainer) buttonContainer.className = '';
+  });
 
   // Setup nav sections dropdowns
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
-    navSections.querySelectorAll('.button').forEach((button) => {
-      button.className = '';
-      const buttonContainer = button.closest('.button-container');
-      if (buttonContainer) buttonContainer.className = '';
-    });
-
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
       navSection.addEventListener('click', () => {
@@ -169,13 +163,7 @@ export default async function decorate(block) {
     });
   }
 
-  // Build two-row masthead layout:
-  // Row 1 (nav-masthead): Logo + Search + Tools + Log in
-  // Row 2 (nav-sections): Dropdown links
-  const masthead = document.createElement('div');
-  masthead.className = 'nav-masthead';
-
-  // Add search box to masthead
+  // Add search box into the brand area (between logo and tools on desktop)
   const searchBox = document.createElement('div');
   searchBox.className = 'nav-search';
   searchBox.innerHTML = `<div class="nav-search-inner">
@@ -188,23 +176,19 @@ export default async function decorate(block) {
   </div>`;
 
   // Add Log in button to tools
-  const loginBtn = document.createElement('li');
-  loginBtn.className = 'nav-login';
-  loginBtn.innerHTML = '<a href="https://onlinebanking.nationwide.co.uk/AccessManagement/IdentifyCustomer/IdentifyCustomer">Log in</a>';
-
+  const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
     const toolsList = navTools.querySelector('ul');
-    if (toolsList) toolsList.append(loginBtn);
+    if (toolsList) {
+      const loginBtn = document.createElement('li');
+      loginBtn.className = 'nav-login';
+      loginBtn.innerHTML = '<a href="https://onlinebanking.nationwide.co.uk/AccessManagement/IdentifyCustomer/IdentifyCustomer">Log in</a>';
+      toolsList.append(loginBtn);
+    }
   }
 
-  // Assemble masthead: brand + search + tools
-  masthead.append(navBrand);
-  masthead.append(searchBox);
-  if (navTools) masthead.append(navTools);
-
-  // Re-insert masthead and sections into nav
-  nav.prepend(navSections);
-  nav.prepend(masthead);
+  // Insert search box after brand in the nav
+  if (navBrand) navBrand.after(searchBox);
 
   // hamburger for mobile
   const hamburger = document.createElement('div');
@@ -222,14 +206,11 @@ export default async function decorate(block) {
   // Personal/Business top bar above masthead
   const topBar = document.createElement('div');
   topBar.className = 'nav-top-bar';
-  const topBarInner = document.createElement('div');
-  topBarInner.className = 'nav-top-bar-inner';
-  topBarInner.innerHTML = `<ul>
+  topBar.innerHTML = `<div class="nav-top-bar-inner"><ul>
     <li><a href="/" class="nav-top-bar-active">Personal</a></li>
     <li><a href="https://www.nationwide.co.uk/business">Business</a></li>
     <li class="nav-top-bar-demo"><span>Demo Website for Nationwide</span></li>
-  </ul>`;
-  topBar.append(topBarInner);
+  </ul></div>`;
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
