@@ -130,6 +130,7 @@ export default async function decorate(block) {
     if (section) section.classList.add(`nav-${c}`);
   });
 
+  // Strip button classes from brand
   const navBrand = nav.querySelector('.nav-brand');
   const brandLink = navBrand.querySelector('.button');
   if (brandLink) {
@@ -137,8 +138,25 @@ export default async function decorate(block) {
     brandLink.closest('.button-container').className = '';
   }
 
+  // Strip button classes from tools
+  const navTools = nav.querySelector('.nav-tools');
+  if (navTools) {
+    navTools.querySelectorAll('.button').forEach((button) => {
+      button.className = '';
+      const buttonContainer = button.closest('.button-container');
+      if (buttonContainer) buttonContainer.className = '';
+    });
+  }
+
+  // Setup nav sections dropdowns
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
+    navSections.querySelectorAll('.button').forEach((button) => {
+      button.className = '';
+      const buttonContainer = button.closest('.button-container');
+      if (buttonContainer) buttonContainer.className = '';
+    });
+
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
       navSection.addEventListener('click', () => {
@@ -150,6 +168,43 @@ export default async function decorate(block) {
       });
     });
   }
+
+  // Build two-row masthead layout:
+  // Row 1 (nav-masthead): Logo + Search + Tools + Log in
+  // Row 2 (nav-sections): Dropdown links
+  const masthead = document.createElement('div');
+  masthead.className = 'nav-masthead';
+
+  // Add search box to masthead
+  const searchBox = document.createElement('div');
+  searchBox.className = 'nav-search';
+  searchBox.innerHTML = `<div class="nav-search-inner">
+    <input type="text" placeholder="Search" aria-label="Search">
+    <button type="button" aria-label="Search">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M9 9.5a5.5 5.5 0 1 1 11 0 5.5 5.5 0 0 1-11 0ZM14.5 2a7.5 7.5 0 0 0-5.963 12.05l-6.244 6.243a1 1 0 0 0 1.414 1.414l6.244-6.244A7.5 7.5 0 1 0 14.5 2Z" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>`;
+
+  // Add Log in button to tools
+  const loginBtn = document.createElement('li');
+  loginBtn.className = 'nav-login';
+  loginBtn.innerHTML = '<a href="https://onlinebanking.nationwide.co.uk/AccessManagement/IdentifyCustomer/IdentifyCustomer">Log in</a>';
+
+  if (navTools) {
+    const toolsList = navTools.querySelector('ul');
+    if (toolsList) toolsList.append(loginBtn);
+  }
+
+  // Assemble masthead: brand + search + tools
+  masthead.append(navBrand);
+  masthead.append(searchBox);
+  if (navTools) masthead.append(navTools);
+
+  // Re-insert masthead and sections into nav
+  nav.prepend(navSections);
+  nav.prepend(masthead);
 
   // hamburger for mobile
   const hamburger = document.createElement('div');
