@@ -1,0 +1,33 @@
+.columns-ranking > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-ranking img {
+  width: 100%;
+}
+
+.columns-ranking > div > div {
+  order: 1;
+}
+
+.columns-ranking > div > .columns-ranking-img-col {
+  order: 0;
+}
+
+.columns-ranking > div > .columns-ranking-img-col img {
+  display: block;
+}
+
+@media (width >= 900px) {
+  .columns-ranking > div {
+    align-items: center;
+    flex-direction: unset;
+    gap: 24px;
+  }
+
+  .columns-ranking > div > div {
+    flex: 1;
+    order: unset;
+  }
+}

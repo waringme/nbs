@@ -1,0 +1,116 @@
+{
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://www.nationwide.co.uk/"
+      ],
+      "description": "Nationwide Building Society homepage with hero banner, product quick links, promotional cards, feature section, and regulatory content",
+      "blocks": [
+        {
+          "name": "hero-banner",
+          "instances": [
+            "[class*='HeroContainerInner']"
+          ]
+        },
+        {
+          "name": "cards-icon",
+          "instances": [
+            "ol[class*='IconBlock__StyledOl']"
+          ]
+        },
+        {
+          "name": "cards-promo",
+          "instances": [
+            "[class*='CardsGrid__StyledCardsGrid']"
+          ]
+        },
+        {
+          "name": "columns-feature",
+          "instances": [
+            "[class*='ImageWithContent__StyledImageArea']"
+          ]
+        },
+        {
+          "name": "columns-split",
+          "instances": [
+            "[class*='SideBySideLayout__SideBySideGrid']:first-of-type"
+          ]
+        },
+        {
+          "name": "columns-ranking",
+          "instances": [
+            "[class*='ContentWithSidebar'] ~ [class*='SideBySideLayout__SideBySideGrid']"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Hero",
+          "selector": "[class*='HeroContainerInner']",
+          "style": null,
+          "blocks": [
+            "hero-banner"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Product Quick Links",
+          "selector": "#main > div > [class*='VerticalSpacer']:nth-of-type(1)",
+          "style": null,
+          "blocks": [
+            "cards-icon"
+          ],
+          "defaultContent": [
+            "[class*='EmphasisHeadingRendering__StyledEmphasisHeading']"
+          ]
+        },
+        {
+          "id": "section-3",
+          "name": "Promotional Cards",
+          "selector": "[class*='CardsGrid__StyledCardsGrid']",
+          "style": null,
+          "blocks": [
+            "cards-promo"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "Call Checker Feature",
+          "selector": "#main > div > [class*='VerticalSpacer']:nth-of-type(2)",
+          "style": "dark",
+          "blocks": [
+            "columns-feature"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-5",
+          "name": "Internet Banking and Help",
+          "selector": "#main > div > [class*='VerticalSpacer']:nth-of-type(3)",
+          "style": null,
+          "blocks": [
+            "columns-split"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-6",
+          "name": "Service Quality and Regulatory",
+          "selector": "#main > div > [class*='VerticalSpacer']:nth-of-type(4)",
+          "style": null,
+          "blocks": [
+            "columns-ranking"
+          ],
+          "defaultContent": [
+            "[class*='ContentWithSidebar__ContentWithSideBarGrid']",
+            "[class*='FullWidthLayout__ContainerWrapper']:last-of-type"
+          ]
+        }
+      ]
+    }
+  ]
+}

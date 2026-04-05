@@ -1,0 +1,114 @@
+.hero-banner-container .hero-banner-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-banner {
+  position: relative;
+  min-height: 400px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.hero-banner img {
+  width: auto;
+  max-width: 50%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Heading - uses serif/italic like Nationwide's "A good way to bank" */
+.hero-banner h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--text-color);
+  margin: 0 0 16px;
+}
+
+.hero-banner h2 em {
+  font-style: italic;
+}
+
+/* Body text */
+.hero-banner p {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+  color: var(--text-color);
+  margin: 0 0 8px;
+}
+
+/* CTA button */
+.hero-banner a {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 24px;
+  background-color: #1a1a2e;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.hero-banner a:hover {
+  background-color: #2d2d4a;
+}
+
+/* Row layout - use display:contents so children participate in hero grid */
+.hero-banner > div {
+  display: contents;
+}
+
+/* Text content row - overlays image */
+.hero-banner > div:last-child {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 24px;
+  min-height: 400px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-banner > div:last-child > div {
+  max-width: 55%;
+}
+
+/* Image row container - positioned behind text */
+.hero-banner > div:first-child > div {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Mobile: stack content above image */
+@media (width < 900px) {
+  .hero-banner img {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .hero-banner > div:last-child {
+    min-height: unset;
+    padding: 24px;
+  }
+
+  .hero-banner > div:last-child > div {
+    max-width: 100%;
+  }
+
+  .hero-banner > div:first-child > div {
+    position: relative;
+    justify-content: center;
+  }
+}

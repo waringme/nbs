@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.nationwide.co.uk/",
+  "path": "index",
+  "timestamp": "2026-04-05T09:30:17.353Z",
+  "title": "Nationwide | A good way to bank",
+  "template": "homepage",
+  "blocks": [
+    "hero-banner",
+    "cards-icon",
+    "cards-promo",
+    "columns-feature",
+    "columns-split",
+    "columns-ranking"
+  ]
+}

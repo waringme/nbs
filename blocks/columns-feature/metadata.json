@@ -1,0 +1,32 @@
+{
+  "variantName": "columns-feature",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-04-05T09:07:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.nationwide.co.uk/",
+    "originPage": "Nationwide homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "feature-promotion",
+    "imagePattern": "large",
+    "structure": "image + heading + checklist + CTA"
+  },
+  "contentPattern": {
+    "structure": "image + heading + checklist + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": ["app/product feature promotions", "dark background feature sections", "image + content with bullet list"],
+    "notSuitableFor": ["light background sections", "text-only columns"]
+  },
+  "usage": {
+    "pagesUsing": ["content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-04-05T09:07:00.000Z"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "variantName": "columns-split",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-04-05T09:07:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.nationwide.co.uk/",
+    "originPage": "Nationwide homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "purpose": "split-content",
+    "imagePattern": "noimg",
+    "structure": "heading + text + buttons | heading + search + links"
+  },
+  "contentPattern": {
+    "structure": "two distinct content areas side by side",
+    "buttonCount": 2,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": ["side-by-side content sections", "login + help areas", "two distinct functional areas"],
+    "notSuitableFor": ["image-heavy columns", "single column layouts"]
+  },
+  "usage": {
+    "pagesUsing": ["content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-04-05T09:07:00.000Z"
+  }
+}
