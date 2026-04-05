@@ -9,15 +9,7 @@
   background-color: #011546;
 }
 
-.hero-banner img {
-  width: auto;
-  max-width: 45%;
-  height: auto;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-/* Heading - serif italic like Nationwide's "A good way to bank" */
+/* Heading - serif italic */
 .hero-banner h2 {
   font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(1.75rem, 4vw, 2.75rem);
@@ -40,7 +32,7 @@
   margin: 0 0 8px;
 }
 
-/* CTA button - outline style like original */
+/* CTA button - outline style */
 .hero-banner a {
   display: inline-block;
   margin-top: 12px;
@@ -65,40 +57,40 @@
   display: contents;
 }
 
-/* Text content - overlays image */
+/* Text content - left side */
 .hero-banner > div:last-child {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 40px 24px;
-  min-height: 380px;
-  max-width: 1264px;
-  margin: 0 auto;
+  padding: 48px 32px 48px calc(max(32px, (100vw - 1264px) / 2 + 32px));
+  min-height: 400px;
 }
 
 .hero-banner > div:last-child > div {
-  max-width: 48%;
+  max-width: 560px;
 }
 
-/* Image container - right side */
+/* Image container - right side, edge to edge */
 .hero-banner > div:first-child > div {
   position: absolute;
-  inset: 0;
+  inset: 0 0 0 50%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  padding-right: 5%;
+  justify-content: center;
+}
+
+.hero-banner img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 /* Mobile: stack vertically */
 @media (width < 900px) {
-  .hero-banner img {
-    max-width: 70%;
-    margin: 0 auto;
-  }
-
   .hero-banner > div:last-child {
     min-height: unset;
     padding: 32px 24px;
@@ -110,13 +102,12 @@
 
   .hero-banner > div:first-child > div {
     position: relative;
+    left: 0;
     justify-content: center;
-    padding-right: 0;
   }
-}
 
-@media (width >= 900px) {
-  .hero-banner > div:last-child {
-    padding: 40px 32px;
+  .hero-banner img {
+    max-width: 70%;
+    margin: 0 auto;
   }
 }
