@@ -1,6 +1,7 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: #011546;
+  color: #fff;
   width: 100%;
   z-index: 2;
   position: fixed;
@@ -58,7 +59,7 @@ header nav p {
 
 /* Personal/Business top bar */
 header .nav-top-bar {
-  background-color: #002979;
+  background-color: #011546;
   width: 100%;
   z-index: 2;
   position: fixed;
@@ -98,7 +99,7 @@ header .nav-top-bar-inner a:hover {
 
 header .nav-top-bar a.nav-top-bar-active {
   background-color: #fff;
-  color: #002979;
+  color: #011546;
   font-weight: 600;
 }
 
@@ -145,7 +146,7 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
+  background-color: transparent;
   color: inherit;
   overflow: initial;
   text-overflow: initial;
