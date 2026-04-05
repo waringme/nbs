@@ -1,33 +1,117 @@
+/* Full-width dark section */
+.columns-split-container {
+  background-color: #011546;
+  color: #fff;
+}
+
+.columns-split-container .columns-split-wrapper {
+  max-width: unset;
+  padding: 48px calc(max(32px, (100vw - 1264px) / 2 + 32px));
+}
+
 .columns-split > div {
   display: flex;
   flex-direction: column;
-}
-
-.columns-split img {
-  width: 100%;
+  gap: 32px;
 }
 
 .columns-split > div > div {
   order: 1;
 }
 
-.columns-split > div > .columns-split-img-col {
-  order: 0;
+/* Typography */
+.columns-split h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
+  color: #fff;
+  margin: 0 0 16px;
 }
 
-.columns-split > div > .columns-split-img-col img {
-  display: block;
+.columns-split p {
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 12px;
 }
 
+.columns-split p a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Buttons */
+.columns-split .button-container {
+  margin: 8px 0;
+}
+
+.columns-split a.button {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  background-color: transparent;
+  transition: background-color 0.2s;
+}
+
+.columns-split a.button:hover {
+  background-color: rgb(255 255 255 / 10%);
+}
+
+.columns-split a.button.primary {
+  background-color: #fff;
+  color: #011546;
+}
+
+.columns-split a.button.primary:hover {
+  background-color: #e8e8f0;
+}
+
+/* Links list */
+.columns-split ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+.columns-split li {
+  padding: 6px 0;
+}
+
+.columns-split li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.columns-split li a:hover {
+  text-decoration: underline;
+}
+
+/* Divider between columns */
 @media (width >= 900px) {
   .columns-split > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 48px;
   }
 
   .columns-split > div > div {
     flex: 1;
     order: unset;
+    padding: 0 24px;
+  }
+
+  .columns-split > div > div:first-child {
+    border-right: 1px solid rgb(255 255 255 / 20%);
+    padding-left: 0;
+  }
+
+  .columns-split > div > div:last-child {
+    padding-right: 0;
   }
 }
