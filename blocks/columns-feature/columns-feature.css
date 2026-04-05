@@ -1,14 +1,10 @@
-/* Dark feature section - full width background matching hero */
-.columns-feature-container {
-  background-color: #011546 !important;
+/* Dark feature section - full width dark blue background */
+.columns-feature-wrapper {
+  background-color: #011546;
   color: #fff;
-  padding: 0;
   position: relative;
-  z-index: 1;
-}
-
-.columns-feature-container .columns-feature-wrapper {
-  max-width: unset;
+  z-index: 2;
+  max-width: unset !important;
   padding: 60px calc(max(32px, (100vw - 1264px) / 2 + 32px));
 }
 
