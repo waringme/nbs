@@ -1,29 +1,108 @@
+/* Dark feature section - full width background */
+.columns-feature-container {
+  background-color: #011546;
+  color: #fff;
+  padding: 0;
+}
+
+.columns-feature-container .columns-feature-wrapper {
+  max-width: 1264px;
+  margin: 0 auto;
+  padding: 48px 32px;
+}
+
 .columns-feature > div {
   display: flex;
   flex-direction: column;
+  gap: 32px;
 }
 
-.columns-feature img {
-  width: 100%;
-}
-
-.columns-feature > div > div {
-  order: 1;
-}
-
+/* Image column */
 .columns-feature > div > .columns-feature-img-col {
   order: 0;
 }
 
 .columns-feature > div > .columns-feature-img-col img {
   display: block;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Text column */
+.columns-feature > div > div {
+  order: 1;
+}
+
+.columns-feature h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
+  color: #fff;
+  margin: 0 0 16px;
+}
+
+.columns-feature p {
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+/* Green checkmark list */
+.columns-feature ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.columns-feature li {
+  position: relative;
+  padding-left: 36px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.columns-feature li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 24px;
+  height: 24px;
+  background-color: #2e7d32;
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* CTA button - orange/coral like original */
+.columns-feature a {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #f9383d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.columns-feature a:hover {
+  background-color: #d42f33;
 }
 
 @media (width >= 900px) {
   .columns-feature > div {
+    flex-direction: row;
     align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    gap: 48px;
   }
 
   .columns-feature > div > div {
