@@ -380,21 +380,34 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
-    display: block;
-    position: absolute;
-    left: -24px;
-    width: 220px;
-    top: 150%;
-    padding: 16px;
-    background-color: #011546;
-    border: 1px solid rgb(255 255 255 / 20%);
-    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: var(--nav-height);
+    padding: 32px calc(max(32px, (100vw - 1264px) / 2 + 32px));
+    background-color: #fff;
+    color: var(--text-color);
+    box-shadow: 0 8px 24px rgb(0 0 0 / 15%);
     white-space: initial;
     z-index: 10;
+    gap: 4px;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 0;
+    padding: 6px 0;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li a:hover {
+    text-decoration: underline;
   }
 }
 
