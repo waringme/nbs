@@ -1,29 +1,22 @@
-/* Light grey background section */
+/* Dark navy full-width section matching original */
 .columns-split-wrapper {
-  background-color: #f5f5f5;
-  color: var(--text-color);
+  background-color: #011546;
+  color: #fff;
   position: relative;
   z-index: 2;
   max-width: unset !important;
   padding: 48px calc(max(32px, (100vw - 1264px) / 2 + 32px));
 }
 
-/* Two card layout */
+/* Two column layout */
 .columns-split > div {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 32px;
 }
 
 .columns-split > div > div {
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 32px;
   order: 1;
-}
-
-.columns-split > div > div:first-child {
-  background-color: #e8f0fe;
 }
 
 /* Typography */
@@ -31,12 +24,12 @@
   font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 700;
-  color: #011546;
+  color: #fff;
   margin: 0 0 16px;
 }
 
 .columns-split p {
-  color: var(--text-color);
+  color: #fff;
   font-size: 16px;
   line-height: 1.6;
   margin: 0 0 12px;
@@ -44,11 +37,11 @@
 
 /* Paragraph links */
 .columns-split > div > div p a {
-  color: var(--text-color);
+  color: #fff;
   text-decoration: underline;
 }
 
-/* List */
+/* List links */
 .columns-split > div > div ul {
   list-style: none;
   padding: 0;
@@ -60,13 +53,13 @@
 }
 
 .columns-split > div > div li a {
-  color: var(--text-color);
+  color: #fff;
   text-decoration: underline;
   font-size: 16px;
   font-weight: 500;
 }
 
-/* Buttons */
+/* Buttons - outline white style */
 .columns-split > div > div .button-container {
   margin: 12px 0 0;
 }
@@ -74,47 +67,58 @@
 .columns-split > div > div .button-container a {
   display: inline-block;
   padding: 14px 28px;
-  border: 2px solid #011546;
+  border: 2px solid #fff;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
-  color: #011546;
+  color: #fff;
   background-color: transparent;
 }
 
 /* Hover states */
 .columns-split > div > div p a:hover,
 .columns-split > div > div li a:hover {
-  color: var(--link-color);
+  opacity: 0.8;
 }
 
 .columns-split > div > div .button-container a:hover {
-  opacity: 0.85;
+  background-color: rgb(255 255 255 / 10%);
 }
 
 /* Filled first button */
 .columns-split > div > div:first-child .button-container:first-of-type a {
-  background-color: #011546;
-  color: #fff;
+  background-color: #fff;
+  color: #011546;
 }
 
 /* Popular searches label */
 .columns-split > div > div:last-child > p:first-of-type {
-  color: #666;
+  color: rgb(255 255 255 / 60%);
   font-size: 14px;
   margin-top: 16px;
 }
 
+/* Desktop: side by side with divider */
 @media (width >= 900px) {
   .columns-split > div {
     flex-direction: row;
-    align-items: stretch;
-    gap: 24px;
+    align-items: flex-start;
+    gap: 48px;
   }
 
   .columns-split > div > div {
     flex: 1;
     order: unset;
+    padding: 0 24px;
+  }
+
+  .columns-split > div > div:first-child {
+    border-right: 1px solid rgb(255 255 255 / 20%);
+    padding-left: 0;
+  }
+
+  .columns-split > div > div:last-child {
+    padding-right: 0;
   }
 }
