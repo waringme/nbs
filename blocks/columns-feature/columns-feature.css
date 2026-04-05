@@ -6,9 +6,8 @@
 }
 
 .columns-feature-container .columns-feature-wrapper {
-  max-width: 1264px;
-  margin: 0 auto;
-  padding: 48px 32px;
+  max-width: unset;
+  padding: 60px calc(max(32px, (100vw - 1264px) / 2 + 32px));
 }
 
 .columns-feature > div {
@@ -25,9 +24,7 @@
 .columns-feature > div > .columns-feature-img-col img {
   display: block;
   width: 100%;
-  max-width: 480px;
   height: auto;
-  margin: 0 auto;
 }
 
 /* Text column */
