@@ -6,7 +6,7 @@
 
 .columns-ranking-container .columns-ranking-wrapper {
   max-width: unset;
-  padding: 0 calc(max(32px, (100vw - 1264px) / 2 + 32px));
+  padding: 0 calc(max(32px, (100vw - 1264px) / 2 + 32px)) 48px;
 }
 
 /* Default content in this section */
@@ -18,30 +18,31 @@
 
 .columns-ranking-container .default-content-wrapper h2 {
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
-  font-weight: 400;
-  color: var(--text-color);
-  margin: 48px 0 16px;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: #011546;
+  margin: 48px 0 20px;
 }
 
 .columns-ranking-container .default-content-wrapper h3 {
   font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(1.25rem, 2vw, 1.5rem);
-  font-weight: 400;
-  color: var(--text-color);
-  margin: 32px 0 12px;
+  font-weight: 700;
+  color: #011546;
+  margin: 32px 0 16px;
 }
 
 .columns-ranking-container .default-content-wrapper p {
   font-family: var(--body-font-family);
-  font-size: 16px;
+  font-size: var(--body-font-size-s);
   line-height: 1.6;
   color: var(--text-color);
-  margin: 0 0 12px;
+  margin: 0 0 16px;
 }
 
 .columns-ranking-container .default-content-wrapper a {
   color: var(--link-color);
+  text-decoration: underline;
 }
 
 /* Columns ranking block */
@@ -62,33 +63,36 @@
 .columns-ranking-container .columns-ranking-wrapper h3 {
   font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(1.125rem, 2vw, 1.375rem);
-  font-weight: 400;
-  color: var(--text-color);
+  font-weight: 700;
+  color: #011546;
   margin: 0 0 16px;
 }
 
 .columns-ranking-container .columns-ranking-wrapper p {
-  font-size: 16px;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
   line-height: 1.6;
   color: var(--text-color);
-  margin: 0 0 12px;
+  margin: 0 0 16px;
 }
 
 .columns-ranking-container .columns-ranking-wrapper a {
+  font-family: var(--body-font-family);
   color: var(--link-color);
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .columns-ranking-container .columns-ranking-wrapper a:hover {
-  text-decoration: underline;
+  color: var(--link-hover-color);
 }
 
 .columns-ranking-container .columns-ranking img {
   width: 100%;
   height: auto;
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  border-radius: 8px;
 }
 
 @media (width >= 900px) {
