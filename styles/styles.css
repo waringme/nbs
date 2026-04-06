@@ -309,8 +309,32 @@ main > .section > div {
   padding: 0 24px;
 }
 
+/* Hero sits under the fixed header; remove default section gutters */
 main > .section:first-of-type {
+  margin: 0;
+}
+
+/* Hero / hero-banner: full-bleed — strip section wrapper max-width and horizontal padding */
+main > .section.hero-container > div,
+main > .section.hero-banner-container > div {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Section stack uses margin: 40px 0; first section is margin: 0.
+ * When the hero is not first (e.g. cards-icon above), the hero would still get 40px
+ * margin-top and the previous section 40px margin-bottom — white gap above the hero.
+ */
+main > .section.hero-banner-container,
+main > .section.hero-container {
   margin-top: 0;
+}
+
+main > .section:has(+ .section.hero-banner-container),
+main > .section:has(+ .section.hero-container) {
+  margin-bottom: 0;
 }
 
 @media (width >= 900px) {
