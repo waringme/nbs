@@ -33,10 +33,11 @@
 }
 
 .columns-split p {
+  font-family: var(--body-font-family);
   color: var(--text-color);
-  font-size: 16px;
+  font-size: var(--body-font-size-s);
   line-height: 1.6;
-  margin: 0 0 12px;
+  margin: 0 0 16px;
 }
 
 /* Paragraph links */
@@ -57,9 +58,10 @@
 }
 
 .columns-split > div > div li a {
+  font-family: var(--body-font-family);
   color: var(--text-color);
   text-decoration: underline;
-  font-size: 16px;
+  font-size: var(--body-font-size-s);
   font-weight: 500;
 }
 
@@ -73,7 +75,8 @@
   padding: 14px 28px;
   border: 2px solid #011546;
   border-radius: 8px;
-  font-size: 16px;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
   font-weight: 600;
   text-decoration: none;
   color: #011546;
