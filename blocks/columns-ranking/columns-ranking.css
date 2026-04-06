@@ -25,7 +25,7 @@
 }
 
 .columns-ranking-container .default-content-wrapper h3 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: NationwideFounders, Arial, sans-serif;
   font-size: clamp(1.125rem, 2vw, 1.25rem);
   font-weight: 700;
   color: #011546;
@@ -33,7 +33,7 @@
 }
 
 .columns-ranking-container .default-content-wrapper p {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: NationwideFounders, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: var(--text-color);
@@ -62,7 +62,7 @@
 }
 
 .columns-ranking-container .columns-ranking-wrapper h3 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: NationwideFounders, Arial, sans-serif;
   font-size: clamp(1rem, 1.5vw, 1.125rem);
   font-weight: 700;
   color: #011546;
@@ -70,7 +70,7 @@
 }
 
 .columns-ranking-container .columns-ranking-wrapper p {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: NationwideFounders, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: var(--text-color);
@@ -79,7 +79,7 @@
 }
 
 .columns-ranking-container .columns-ranking-wrapper a {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: NationwideFounders, Arial, sans-serif;
   color: var(--link-color);
   font-weight: 600;
   text-decoration: underline;
