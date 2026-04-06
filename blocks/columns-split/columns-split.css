@@ -86,8 +86,8 @@
   background-color: rgb(255 255 255 / 10%);
 }
 
-/* Filled first button */
-.columns-split > div > div:first-child .button-container:first-of-type a {
+/* Filled primary button */
+.columns-split > div > div .button-container a.primary {
   background-color: #fff;
   color: #011546;
 }
