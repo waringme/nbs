@@ -1,21 +1,25 @@
-/* Dark navy full-width section matching original */
+/* White background section */
 .columns-split-wrapper {
-  background-color: #011546;
-  color: #fff;
+  background-color: #fff;
+  color: var(--text-color);
   position: relative;
   z-index: 2;
   max-width: unset !important;
   padding: 48px calc(max(32px, (100vw - 1264px) / 2 + 32px));
 }
 
-/* Two column layout */
+/* Two card layout */
 .columns-split > div {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
 }
 
+/* Each column as a card with light blue background and rounded edges */
 .columns-split > div > div {
+  background-color: #edf2f8;
+  border-radius: 16px;
+  padding: 32px;
   order: 1;
 }
 
@@ -24,12 +28,12 @@
   font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 700;
-  color: #fff;
+  color: #011546;
   margin: 0 0 16px;
 }
 
 .columns-split p {
-  color: #fff;
+  color: var(--text-color);
   font-size: 16px;
   line-height: 1.6;
   margin: 0 0 12px;
@@ -37,7 +41,7 @@
 
 /* Paragraph links */
 .columns-split > div > div p a {
-  color: #fff;
+  color: var(--text-color);
   text-decoration: underline;
 }
 
@@ -53,13 +57,13 @@
 }
 
 .columns-split > div > div li a {
-  color: #fff;
+  color: var(--text-color);
   text-decoration: underline;
   font-size: 16px;
   font-weight: 500;
 }
 
-/* Buttons - outline white style */
+/* Buttons */
 .columns-split > div > div .button-container {
   margin: 12px 0 0;
 }
@@ -67,58 +71,49 @@
 .columns-split > div > div .button-container a {
   display: inline-block;
   padding: 14px 28px;
-  border: 2px solid #fff;
+  border: 2px solid #011546;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
-  color: #fff;
-  background-color: transparent;
+  color: #011546;
+  background-color: #fff;
 }
 
 /* Hover states */
 .columns-split > div > div p a:hover,
 .columns-split > div > div li a:hover {
-  opacity: 0.8;
+  color: var(--link-color);
 }
 
 .columns-split > div > div .button-container a:hover {
-  background-color: rgb(255 255 255 / 10%);
+  opacity: 0.85;
 }
 
 /* Filled primary button */
 .columns-split > div > div .button-container a.primary {
-  background-color: #fff;
-  color: #011546;
+  background-color: #011546;
+  color: #fff;
+  border-color: #011546;
 }
 
 /* Popular searches label */
 .columns-split > div > div:last-child > p:first-of-type {
-  color: rgb(255 255 255 / 60%);
+  color: #666;
   font-size: 14px;
   margin-top: 16px;
 }
 
-/* Desktop: side by side with divider */
+/* Desktop: side by side */
 @media (width >= 900px) {
   .columns-split > div {
     flex-direction: row;
-    align-items: flex-start;
-    gap: 48px;
+    align-items: stretch;
+    gap: 24px;
   }
 
   .columns-split > div > div {
     flex: 1;
     order: unset;
-    padding: 0 24px;
-  }
-
-  .columns-split > div > div:first-child {
-    border-right: 1px solid rgb(255 255 255 / 20%);
-    padding-left: 0;
-  }
-
-  .columns-split > div > div:last-child {
-    padding-right: 0;
   }
 }
