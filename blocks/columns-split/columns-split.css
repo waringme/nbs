@@ -23,19 +23,21 @@
   order: 1;
 }
 
-/* Typography */
-.columns-split h2 {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 700;
-  color: #011546;
+/* Typography — vertical-rhythm--h2 style (Nationwide Founders 40px, #02081E on nationwide.co.uk) */
+.columns-split h2,
+.columns-split h3 {
+  font-family: var(--nationwide-founders-font-family);
+  font-size: clamp(1.5rem, 4vw, 2.5rem); /* 2.5rem = 40px at 16px root */
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--nationwide-heading-navy);
   margin: 0 0 16px;
 }
 
 .columns-split p {
   font-family: var(--body-font-family);
   color: var(--text-color);
-  font-size: var(--body-font-size-s);
+  font-size: 16px;
   line-height: 1.6;
   margin: 0 0 16px;
 }
@@ -55,13 +57,15 @@
 
 .columns-split > div > div li {
   padding: 8px 0;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .columns-split > div > div li a {
   font-family: var(--body-font-family);
   color: var(--text-color);
   text-decoration: underline;
-  font-size: var(--body-font-size-s);
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -76,7 +80,7 @@
   border: 2px solid #011546;
   border-radius: 8px;
   font-family: var(--body-font-family);
-  font-size: var(--body-font-size-s);
+  font-size: 16px;
   font-weight: 600;
   text-decoration: none;
   color: #011546;
@@ -100,10 +104,11 @@
   border-color: #011546;
 }
 
-/* Popular searches label */
+/* Popular searches label — same scale as columns-feature body copy */
 .columns-split > div > div:last-child > p:first-of-type {
   color: #666;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 1.6;
   margin-top: 16px;
 }
 

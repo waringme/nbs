@@ -30,10 +30,13 @@
   order: 1;
 }
 
-.columns-feature h2 {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
+/* Same vertical-rhythm--h2 treatment as columns-split (Internet banking), white on navy */
+.columns-feature h2,
+.columns-feature h3 {
+  font-family: var(--nationwide-founders-font-family);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 400;
+  line-height: 1.1;
   color: #fff;
   margin: 0 0 16px;
 }

@@ -22,6 +22,9 @@
   /* fonts */
   --body-font-family: roboto, roboto-fallback, sans-serif;
   --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  /* Nationwide brand (matches nationwide.co.uk vertical-rhythm--h2); add @font-face for NationwideFounders to load the face */
+  --nationwide-founders-font-family: NationwideFounders, Arial, sans-serif;
+  --nationwide-heading-navy: #02081e;
 
   /* body sizes */
   --body-font-size-m: 22px;

@@ -1,39 +1,49 @@
-/* Service quality section - white background, full width */
+/* Independent service quality survey results — mirrors nationwide.co.uk ContentWithSidebar / vertical-rhythm */
 .columns-ranking-container {
   background-color: #fff;
   padding: 0;
 }
 
+/* One horizontal rhythm with other full-width sections (1264px column) */
 .columns-ranking-container .columns-ranking-wrapper {
+  box-sizing: border-box;
   max-width: unset;
+  margin: 0;
   padding: 0 calc(max(32px, (100vw - 1264px) / 2 + 32px)) 48px;
 }
 
-/* Default content in this section */
+/* Intro copy above the two columns (default content) */
 .columns-ranking-container .default-content-wrapper {
+  box-sizing: border-box;
   max-width: 1264px;
   margin: 0 auto;
-  padding: 0 0 24px;
+  padding: 0 0 32px;
+  text-align: left;
 }
 
+/* Section title — same as vertical-rhythm--h2 / Internet banking block */
 .columns-ranking-container .default-content-wrapper h2 {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-family: var(--nationwide-founders-font-family);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 400;
-  color: #011546;
+  line-height: 1.1;
+  color: var(--nationwide-heading-navy);
   margin: 48px 0 20px;
 }
 
-.columns-ranking-container .default-content-wrapper h3 {
-  font-family: NationwideFounders, Arial, sans-serif;
-  font-size: clamp(1.125rem, 2vw, 1.25rem);
+/* Subheads (e.g. FCA metrics) and in-column titles */
+.columns-ranking-container .default-content-wrapper h3,
+.columns-ranking-container .default-content-wrapper h4 {
+  font-family: var(--nationwide-founders-font-family);
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
   font-weight: 700;
+  line-height: 1.25;
   color: #011546;
   margin: 32px 0 16px;
 }
 
 .columns-ranking-container .default-content-wrapper p {
-  font-family: NationwideFounders, Arial, sans-serif;
+  font-family: var(--nationwide-founders-font-family);
   font-size: 16px;
   line-height: 1.5;
   color: var(--text-color);
@@ -46,11 +56,12 @@
   text-decoration: underline;
 }
 
-/* Columns ranking block */
+/* Two ranking columns */
 .columns-ranking-container .columns-ranking > div {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  align-items: stretch;
 }
 
 .columns-ranking-container .columns-ranking > div > div {
@@ -62,15 +73,16 @@
 }
 
 .columns-ranking-container .columns-ranking-wrapper h3 {
-  font-family: NationwideFounders, Arial, sans-serif;
-  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  font-family: var(--nationwide-founders-font-family);
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
   font-weight: 700;
+  line-height: 1.25;
   color: #011546;
   margin: 0 0 16px;
 }
 
 .columns-ranking-container .columns-ranking-wrapper p {
-  font-family: NationwideFounders, Arial, sans-serif;
+  font-family: var(--nationwide-founders-font-family);
   font-size: 16px;
   line-height: 1.5;
   color: var(--text-color);
@@ -79,7 +91,7 @@
 }
 
 .columns-ranking-container .columns-ranking-wrapper a {
-  font-family: NationwideFounders, Arial, sans-serif;
+  font-family: var(--nationwide-founders-font-family);
   color: var(--link-color);
   font-weight: 600;
   text-decoration: underline;
@@ -106,6 +118,7 @@
 
   .columns-ranking-container .columns-ranking > div > div {
     flex: 1;
+    min-width: 0;
     order: unset;
   }
 }
