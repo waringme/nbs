@@ -16,5 +16,19 @@ export default async function decorate(block) {
   const footer = document.createElement('div');
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
+  // Add section classes: brand, links, social
+  const sections = ['footer-brand', 'footer-links', 'footer-social'];
+  sections.forEach((cls, i) => {
+    const section = footer.children[i];
+    if (section) section.classList.add(cls);
+  });
+
+  // Strip button classes from footer links
+  footer.querySelectorAll('.button').forEach((button) => {
+    button.className = '';
+    const container = button.closest('.button-container');
+    if (container) container.className = '';
+  });
+
   block.append(footer);
 }
