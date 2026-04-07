@@ -75,6 +75,25 @@ function buildAutoBlocks(main) {
 }
 
 /**
+ * Adds regulatory-copy for APP scams-style headings; loads columns-ranking CSS when no block.
+ * Authors may set Section Metadata so the section already has regulatory-copy.
+ * @param {Element} main The main container element
+ */
+function decorateRegulatoryCopySections(main) {
+  const isAppScamsHeading = /^Authorised push payment/i;
+  main.querySelectorAll('.section .default-content-wrapper h2').forEach((h2) => {
+    if (isAppScamsHeading.test(h2.textContent.trim())) {
+      const section = h2.closest('.section');
+      if (section) section.classList.add('regulatory-copy');
+    }
+  });
+  /* Load columns-ranking.css when the block is absent (default content only). */
+  if (main.querySelector('.section.regulatory-copy')) {
+    loadCSS(`${window.hlx.codeBasePath}/blocks/columns-ranking/columns-ranking.css`);
+  }
+}
+
+/**
  * Decorates formatted links to style them as buttons.
  * @param {HTMLElement} main The main container element
  */
@@ -122,6 +141,7 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  decorateRegulatoryCopySections(main);
   decorateBlocks(main);
   decorateButtons(main);
 }

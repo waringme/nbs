@@ -334,7 +334,8 @@ main > .section.hero-banner-container,
 main > .section.hero-container,
 main > .section.cards-icon-container,
 main > .section.cards-promo-container,
-main > .section.columns-feature-container {
+main > .section.columns-feature-container,
+main > .section.regulatory-copy {
   margin: 0;
 }
 

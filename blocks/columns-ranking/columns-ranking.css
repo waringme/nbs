@@ -1,18 +1,28 @@
-/* Independent service quality survey results — mirrors nationwide.co.uk ContentWithSidebar / vertical-rhythm */
+/* Independent service quality survey results — aligned with nationwide.co.uk ContentWithSidebar + vertical-rhythm */
 .columns-ranking-container {
   background-color: #fff;
-  padding: 0;
+  box-sizing: border-box;
+
+  /* White margin at viewport edges (matches main > .section > div gutters); needed when parent section has no horizontal padding */
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
-/* One horizontal rhythm with other full-width sections (1264px column) */
+@media (width >= 900px) {
+  .columns-ranking-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
 .columns-ranking-container .columns-ranking-wrapper {
   box-sizing: border-box;
   max-width: unset;
   margin: 0;
-  padding: 0 calc(max(32px, (100vw - 1264px) / 2 + 32px)) 48px;
+  padding: 48px 0 56px;
 }
 
-/* Intro copy above the two columns (default content) */
+/* Intro copy — max line length like source sidebar body */
 .columns-ranking-container .default-content-wrapper {
   box-sizing: border-box;
   max-width: 1264px;
@@ -21,17 +31,18 @@
   text-align: left;
 }
 
-/* Section title — same as vertical-rhythm--h2 / Internet banking block */
+/* Section title — Nationwide Founders h2 / vertical-rhythm--h2 */
 .columns-ranking-container .default-content-wrapper h2 {
   font-family: var(--nationwide-founders-font-family);
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 400;
   line-height: 1.1;
   color: var(--nationwide-heading-navy);
-  margin: 48px 0 20px;
+  margin: 0 0 20px;
+  letter-spacing: -0.02em;
 }
 
-/* Subheads (e.g. FCA metrics) and in-column titles */
+/* Subheads (FCA block) + same scale as in-column h3 */
 .columns-ranking-container .default-content-wrapper h3,
 .columns-ranking-container .default-content-wrapper h4 {
   font-family: var(--nationwide-founders-font-family);
@@ -39,86 +50,215 @@
   font-weight: 700;
   line-height: 1.25;
   color: #011546;
-  margin: 32px 0 16px;
-}
-
-.columns-ranking-container .default-content-wrapper p {
-  font-family: var(--nationwide-founders-font-family);
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--text-color);
-  margin: 0 0 20px;
+  margin: 40px 0 12px;
   letter-spacing: -0.01em;
 }
 
+/*
+ * Body — Roboto 16px / 1.6 on desktop (matches columns-split regulatory-style copy).
+ */
+.columns-ranking-container .default-content-wrapper p,
+.columns-ranking-container .columns-ranking-wrapper p {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin: 0 0 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.columns-ranking-container .default-content-wrapper > p {
+  max-width: min(100%, 68ch);
+}
+
+.columns-ranking-container .default-content-wrapper p:last-child,
+.columns-ranking-container .columns-ranking-wrapper p:last-child {
+  margin-bottom: 0;
+}
+
+.columns-ranking-container .default-content-wrapper strong,
+.columns-ranking-container .columns-ranking-wrapper strong,
+.columns-ranking-container .default-content-wrapper b,
+.columns-ranking-container .columns-ranking-wrapper b {
+  font-family: var(--body-font-family);
+  font-weight: 700;
+}
+
+.columns-ranking-container .default-content-wrapper ul,
+.columns-ranking-container .default-content-wrapper ol {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  line-height: 1.6;
+  color: var(--text-color);
+  margin: 0 0 16px;
+  padding-left: 1.25em;
+}
+
+.columns-ranking-container .default-content-wrapper li {
+  margin: 0.35em 0;
+}
+
+/* In-body links: text colour + underline (nationwide.co.uk), hover to link blue — like columns-split */
 .columns-ranking-container .default-content-wrapper a {
-  color: var(--link-color);
+  color: var(--text-color);
+  font-weight: 500;
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
-/* Two ranking columns */
-.columns-ranking-container .columns-ranking > div {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  align-items: stretch;
-}
-
-.columns-ranking-container .columns-ranking > div > div {
-  order: 1;
-}
-
-.columns-ranking-container .columns-ranking > div > .columns-ranking-img-col {
-  order: 0;
-}
-
+/* Column card typography (before default :hover so specificity order satisfies stylelint) */
 .columns-ranking-container .columns-ranking-wrapper h3 {
   font-family: var(--nationwide-founders-font-family);
   font-size: clamp(1.125rem, 2vw, 1.5rem);
   font-weight: 700;
   line-height: 1.25;
   color: #011546;
-  margin: 0 0 16px;
-}
-
-.columns-ranking-container .columns-ranking-wrapper p {
-  font-family: var(--nationwide-founders-font-family);
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--text-color);
-  margin: 0 0 20px;
-  letter-spacing: -0.01em;
+  margin: 0 0 12px;
 }
 
 .columns-ranking-container .columns-ranking-wrapper a {
-  font-family: var(--nationwide-founders-font-family);
-  color: var(--link-color);
-  font-weight: 600;
+  font-family: var(--body-font-family);
+  color: var(--text-color);
+  font-weight: 500;
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
-.columns-ranking-container .columns-ranking-wrapper a:hover {
-  color: var(--link-hover-color);
+.columns-ranking-container .columns-ranking-wrapper a:hover,
+.columns-ranking-container .default-content-wrapper a:hover {
+  color: var(--link-color);
+}
+
+/*
+ * Standalone regulatory sections (e.g. APP scams copy) — same typography as intro above.
+ * Placed after ranking-wrapper h3/a rules so specificity order satisfies stylelint.
+ */
+main > .section.regulatory-copy .default-content-wrapper {
+  box-sizing: border-box;
+  max-width: 1264px;
+  margin: 0 auto;
+  padding: 0 0 32px;
+  text-align: left;
+}
+
+main > .section.regulatory-copy .default-content-wrapper h2 {
+  font-family: var(--nationwide-founders-font-family);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--nationwide-heading-navy);
+  margin: 0 0 20px;
+  letter-spacing: -0.02em;
+}
+
+main > .section.regulatory-copy .default-content-wrapper h3,
+main > .section.regulatory-copy .default-content-wrapper h4 {
+  font-family: var(--nationwide-founders-font-family);
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #011546;
+  margin: 40px 0 12px;
+  letter-spacing: -0.01em;
+}
+
+main > .section.regulatory-copy .default-content-wrapper p {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin: 0 0 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+main > .section.regulatory-copy .default-content-wrapper > p {
+  max-width: min(100%, 68ch);
+}
+
+main > .section.regulatory-copy .default-content-wrapper p:last-child {
+  margin-bottom: 0;
+}
+
+main > .section.regulatory-copy .default-content-wrapper strong,
+main > .section.regulatory-copy .default-content-wrapper b {
+  font-family: var(--body-font-family);
+  font-weight: 700;
+}
+
+main > .section.regulatory-copy .default-content-wrapper ul,
+main > .section.regulatory-copy .default-content-wrapper ol {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  line-height: 1.6;
+  color: var(--text-color);
+  margin: 0 0 16px;
+  padding-left: 1.25em;
+}
+
+main > .section.regulatory-copy .default-content-wrapper li {
+  margin: 0.35em 0;
+}
+
+main > .section.regulatory-copy .default-content-wrapper a {
+  color: var(--text-color);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+main > .section.regulatory-copy .default-content-wrapper a:hover {
+  color: var(--link-color);
+}
+
+/* Two ranking columns — white cards + hairline border (closer to source than solid grey panels) */
+.columns-ranking-container .columns-ranking > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: stretch;
+  max-width: 1264px;
+  margin: 0 auto;
+}
+
+.columns-ranking-container .columns-ranking > div > div {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background-color: var(--background-color);
+  border: 1px solid #dadada;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
+}
+
+/* Chart image above title when markup has heading before picture (matches source card layout) */
+.columns-ranking-container .columns-ranking > div > div > .columns-ranking-img-col {
+  order: -1;
+  margin-bottom: 8px;
 }
 
 .columns-ranking-container .columns-ranking img {
   width: 100%;
   height: auto;
   display: block;
-  margin-bottom: 20px;
+  margin: 0 0 16px;
   border-radius: 8px;
+  border: 1px solid #e8e8e8;
+  box-sizing: border-box;
 }
 
 @media (width >= 900px) {
   .columns-ranking-container .columns-ranking > div {
     flex-direction: row;
-    align-items: flex-start;
-    gap: 48px;
+    align-items: stretch;
+    gap: 32px;
   }
 
   .columns-ranking-container .columns-ranking > div > div {
     flex: 1;
     min-width: 0;
-    order: unset;
   }
 }
