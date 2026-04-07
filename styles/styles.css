@@ -314,9 +314,12 @@ main > .section:first-of-type {
   margin: 0;
 }
 
-/* Hero / hero-banner: full-bleed — strip section wrapper max-width and horizontal padding */
-main > .section.hero-container > div,
-main > .section.hero-banner-container > div {
+/*
+ * Hero / hero-banner: full-bleed on the first wrapper only.
+ * Other blocks in the same section (e.g. cards-promo) must keep section horizontal padding.
+ */
+main > .section.hero-container > div:first-child,
+main > .section.hero-banner-container > div:first-child {
   max-width: none;
   margin: 0;
   padding: 0;
