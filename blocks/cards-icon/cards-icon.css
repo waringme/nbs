@@ -10,15 +10,27 @@
 .section:has(.cards-icon) > .default-content-wrapper {
   max-width: 1264px;
   margin: 0 auto;
-  padding: 48px 32px 0;
+  padding: 80px 32px 0;
 }
 
-/* After hero (adjacent section or same section with multiple blocks): drop extra top padding */
+/*
+ * After hero: clear space before the emphasis heading.
+ * Same section (hero + cards-icon) or hero section + following cards-icon section.
+ */
 .section.hero-banner-container.cards-icon-container > .default-content-wrapper,
 .section.hero-container.cards-icon-container > .default-content-wrapper,
 main > .section.hero-banner-container + .section.cards-icon-container > .default-content-wrapper,
 main > .section.hero-container + .section.cards-icon-container > .default-content-wrapper {
-  padding-top: 0;
+  padding-top: 88px;
+}
+
+@media (width >= 900px) {
+  .section.hero-banner-container.cards-icon-container > .default-content-wrapper,
+  .section.hero-container.cards-icon-container > .default-content-wrapper,
+  main > .section.hero-banner-container + .section.cards-icon-container > .default-content-wrapper,
+  main > .section.hero-container + .section.cards-icon-container > .default-content-wrapper {
+    padding-top: 104px;
+  }
 }
 
 .section:has(.cards-icon) > .default-content-wrapper h2 {

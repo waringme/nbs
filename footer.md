@@ -1,4 +1,4 @@
-The site footer is loaded from **`blocks/footer/footer.plain.html`** in the repo (same markup on dev, preview, and production). Edit that file, or keep this document in sync for reference.
+The site footer is loaded only from **`blocks/footer/footer.plain.html`** in the repo on every environment: local dev, **`*.aem.page`** (preview/staging), and **`*.aem.live`** (production). Edit that file. This document is kept for reference; it is not used at runtime.
 
 ![Nationwide](/icons/nationwide-logo.svg)
 
