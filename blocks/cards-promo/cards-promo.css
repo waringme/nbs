@@ -1,9 +1,21 @@
-/* White background section */
-.cards-promo-container {
+/*
+ * Promo-only section: outer padding is fine.
+ * When hero/cards share the same section, the section also gets cards-promo-container
+ * — section-level padding would add 48px above the hero (white band under nav).
+ */
+.section.cards-promo-container {
   background-color: #fff !important;
   color: var(--text-color);
   position: relative;
   z-index: 1;
+}
+
+.section.cards-promo-container:not(.hero-banner-container, .hero-container) {
+  padding: 48px 0;
+}
+
+.section.hero-banner-container.cards-promo-container .cards-promo-wrapper,
+.section.hero-container.cards-promo-container .cards-promo-wrapper {
   padding: 48px 0;
 }
 
@@ -64,4 +76,11 @@
   .cards-promo > ul {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+/* Section uses padding: 48px 0 — remove top padding when stacked after icon row or hero */
+main > .section.cards-icon-container + .section.cards-promo-container,
+main > .section.hero-banner-container + .section.cards-promo-container,
+main > .section.hero-container + .section.cards-promo-container {
+  padding-top: 0;
 }

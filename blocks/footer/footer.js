@@ -1,5 +1,55 @@
-import { getMetadata } from '../../scripts/aem.js';
+import { decorateIcons, getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
+
+/**
+ * Injects span.icon placeholders for app/play badges and social links, then runs decorateIcons.
+ * @param {Element} footer Footer inner wrapper
+ */
+function decorateFooterIcons(footer) {
+  const brand = footer.querySelector('.footer-brand');
+  if (brand) {
+    brand.querySelectorAll('a[href*="apps.apple.com"]').forEach((a) => {
+      if (a.querySelector('span.icon')) return;
+      const span = document.createElement('span');
+      span.className = 'icon icon-app-store';
+      span.setAttribute('aria-hidden', 'true');
+      a.prepend(span);
+    });
+    brand.querySelectorAll('a[href*="play.google.com"]').forEach((a) => {
+      if (a.querySelector('span.icon')) return;
+      const span = document.createElement('span');
+      span.className = 'icon icon-google-play';
+      span.setAttribute('aria-hidden', 'true');
+      a.prepend(span);
+    });
+  }
+
+  const socialHosts = [
+    ['facebook.com', 'facebook'],
+    ['linkedin.com', 'linkedin'],
+    ['twitter.com', 'twitter-x'],
+    ['x.com', 'twitter-x'],
+    ['youtube.com', 'youtube'],
+    ['instagram.com', 'instagram'],
+  ];
+
+  footer.querySelectorAll('.footer-social a[href]').forEach((a) => {
+    if (a.querySelector('span.icon')) return;
+    const { href } = a;
+    const match = socialHosts.find(([host]) => href.includes(host));
+    if (!match) return;
+    const [, iconName] = match;
+    const label = a.textContent.trim();
+    a.setAttribute('aria-label', label);
+    a.textContent = '';
+    const span = document.createElement('span');
+    span.className = `icon icon-${iconName}`;
+    span.setAttribute('aria-hidden', 'true');
+    a.append(span);
+  });
+
+  decorateIcons(footer);
+}
 
 /**
  * loads and decorates the footer
@@ -30,5 +80,6 @@ export default async function decorate(block) {
     if (container) container.className = '';
   });
 
+  decorateFooterIcons(footer);
   block.append(footer);
 }
