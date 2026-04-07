@@ -1,3 +1,5 @@
+The site footer is loaded from **`blocks/footer/footer.plain.html`** in the repo (same markup on dev, preview, and production). Edit that file, or keep this document in sync for reference.
+
 ![Nationwide](/icons/nationwide-logo.svg)
 
 A good way to *bank*
