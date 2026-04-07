@@ -75,8 +75,10 @@ function buildAutoBlocks(main) {
 }
 
 /**
- * Adds regulatory-copy for APP scams-style headings; loads columns-ranking CSS when no block.
- * Authors may set Section Metadata so the section already has regulatory-copy.
+ * Marks the default-content wrapper that holds APP scams copy (class on wrapper, not section,
+ * so it can sit below columns-ranking in the same section with a full-width grey band).
+ * Authors may also set Section Metadata style regulatory-copy on the section.
+ * Loads columns-ranking.css for shared regulatory styles.
  * @param {Element} main The main container element
  */
 function decorateRegulatoryCopySections(main) {
@@ -84,11 +86,13 @@ function decorateRegulatoryCopySections(main) {
   main.querySelectorAll('.section .default-content-wrapper h2').forEach((h2) => {
     if (isAppScamsHeading.test(h2.textContent.trim())) {
       const section = h2.closest('.section');
-      if (section) section.classList.add('regulatory-copy');
+      const wrapper = h2.closest('.default-content-wrapper');
+      if (section?.classList.contains('regulatory-copy')) return;
+      if (wrapper) wrapper.classList.add('regulatory-copy');
     }
   });
   /* Load columns-ranking.css when the block is absent (default content only). */
-  if (main.querySelector('.section.regulatory-copy')) {
+  if (main.querySelector('.default-content-wrapper.regulatory-copy, .section.regulatory-copy')) {
     loadCSS(`${window.hlx.codeBasePath}/blocks/columns-ranking/columns-ranking.css`);
   }
 }

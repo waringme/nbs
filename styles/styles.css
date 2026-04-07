@@ -334,9 +334,23 @@ main > .section.hero-banner-container,
 main > .section.hero-container,
 main > .section.cards-icon-container,
 main > .section.cards-promo-container,
-main > .section.columns-feature-container,
+main > .section.columns-feature-container {
+  margin: 0;
+}
+
+/* APP / regulatory strip — full section (Section Metadata only); matches nationwide.co.uk band */
 main > .section.regulatory-copy {
   margin: 0;
+  background-color: #f5f5f5;
+  border-top: 1px solid #e8e8e8;
+  padding: 48px 0;
+  box-sizing: border-box;
+}
+
+@media (width >= 900px) {
+  main > .section.regulatory-copy {
+    padding: 56px 0;
+  }
 }
 
 @media (width >= 900px) {
