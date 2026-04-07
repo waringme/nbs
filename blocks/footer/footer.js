@@ -1,5 +1,6 @@
 import { decorateIcons } from '../../scripts/aem.js';
-import { loadFragmentFromRepo } from '../fragment/fragment.js';
+import { fragmentFromHtmlString, loadFragmentFromRepo } from '../fragment/fragment.js';
+import FOOTER_PLAIN_HTML from './footer-inline.js';
 
 /**
  * Injects span.icon placeholders for app/play badges and social links, then runs decorateIcons.
@@ -56,8 +57,11 @@ function decorateFooterIcons(footer) {
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
-  // Footer markup comes only from git: blocks/footer/footer.plain.html (local, preview/staging, production).
-  const fragment = await loadFragmentFromRepo('/blocks/footer/footer');
+  /* Prefer repo file; use bundled HTML if fetch fails (same markup as footer.plain.html). */
+  let fragment = await loadFragmentFromRepo('/blocks/footer/footer');
+  if (!fragment) {
+    fragment = await fragmentFromHtmlString(FOOTER_PLAIN_HTML, '/blocks/footer/footer');
+  }
   if (!fragment) return;
 
   // decorate footer DOM

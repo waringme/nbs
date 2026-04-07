@@ -14,6 +14,29 @@ import {
 } from '../../scripts/aem.js';
 
 /**
+ * Parses plain HTML through the same decoration pipeline as fetched fragments.
+ * @param {string} html Fragment body (no main wrapper)
+ * @param {string} basePath Path without .plain.html (for resolving ./media_ URLs)
+ * @returns {Promise<HTMLElement>} Root main element
+ */
+async function loadFragmentFromHtml(html, basePath) {
+  const main = document.createElement('main');
+  main.innerHTML = html;
+
+  const resetAttributeBase = (tag, attr) => {
+    main.querySelectorAll(`${tag}[${attr}^="./media_"]`).forEach((elem) => {
+      elem[attr] = new URL(elem.getAttribute(attr), new URL(basePath, window.location)).href;
+    });
+  };
+  resetAttributeBase('img', 'src');
+  resetAttributeBase('source', 'srcset');
+
+  decorateMain(main);
+  await loadSections(main);
+  return main;
+}
+
+/**
  * Loads a fragment from the code deployment (git), not the content path.
  * Same markup on dev, preview, and production when the file lives in the repo.
  * @param {string} relativePath Path without .plain.html (e.g. '/blocks/footer/footer')
@@ -29,20 +52,17 @@ export async function loadFragmentFromRepo(relativePath) {
   if (!resp.ok) {
     return null;
   }
-  const main = document.createElement('main');
-  main.innerHTML = await resp.text();
+  return loadFragmentFromHtml(await resp.text(), relativePath);
+}
 
-  const resetAttributeBase = (tag, attr) => {
-    main.querySelectorAll(`${tag}[${attr}^="./media_"]`).forEach((elem) => {
-      elem[attr] = new URL(elem.getAttribute(attr), new URL(relativePath, window.location)).href;
-    });
-  };
-  resetAttributeBase('img', 'src');
-  resetAttributeBase('source', 'srcset');
-
-  decorateMain(main);
-  await loadSections(main);
-  return main;
+/**
+ * Same as loadFragmentFromRepo but from an HTML string (e.g. bundled fallback when fetch fails).
+ * @param {string} html Fragment body
+ * @param {string} basePath Path without .plain.html (for media resolution)
+ * @returns {Promise<HTMLElement>} Root main element
+ */
+export async function fragmentFromHtmlString(html, basePath) {
+  return loadFragmentFromHtml(html, basePath);
 }
 
 /**
@@ -54,21 +74,7 @@ export async function loadFragment(path) {
   if (path && path.startsWith('/') && !path.startsWith('//')) {
     const resp = await fetch(`${path}.plain.html`);
     if (resp.ok) {
-      const main = document.createElement('main');
-      main.innerHTML = await resp.text();
-
-      // reset base path for media to fragment base
-      const resetAttributeBase = (tag, attr) => {
-        main.querySelectorAll(`${tag}[${attr}^="./media_"]`).forEach((elem) => {
-          elem[attr] = new URL(elem.getAttribute(attr), new URL(path, window.location)).href;
-        });
-      };
-      resetAttributeBase('img', 'src');
-      resetAttributeBase('source', 'srcset');
-
-      decorateMain(main);
-      await loadSections(main);
-      return main;
+      return loadFragmentFromHtml(await resp.text(), path);
     }
   }
   return null;
