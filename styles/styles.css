@@ -87,7 +87,10 @@ body.appear {
   display: block;
 }
 
+/* Stacking above main (sections use z-index 1–2); position makes z-index apply */
 header {
+  position: relative;
+  z-index: 100;
   height: var(--nav-height);
 }
 

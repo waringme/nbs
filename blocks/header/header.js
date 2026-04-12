@@ -220,7 +220,7 @@ export default async function decorate(block) {
       const loginBtn = document.createElement('li');
       loginBtn.className = 'nav-login';
       const loginHref = 'https://onlinebanking.nationwide.co.uk/AccessManagement/IdentifyCustomer/IdentifyCustomer';
-      loginBtn.innerHTML = '<a href="' + loginHref + '"><span class="icon icon-lock" aria-hidden="true"></span>Log in</a>';
+      loginBtn.innerHTML = `<a href='${loginHref}'><span class='icon icon-lock' aria-hidden='true'></span>Log in</a>`;
       toolsList.append(loginBtn);
     }
     decorateNavToolIcons(navTools);
