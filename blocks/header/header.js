@@ -1,5 +1,42 @@
-import { getMetadata } from '../../scripts/aem.js';
+import { decorateIcons, getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
+
+/**
+ * Branch / Contact / Help icons in .nav-tools (map pin, phone, help circle).
+ * Uses /icons/branch.svg, contact.svg, help.svg; strips CMS images.
+ * @param {Element|null} navTools .nav-tools element
+ */
+function decorateNavToolIcons(navTools) {
+  if (!navTools) return;
+
+  function iconNameForLink(a) {
+    const label = a.textContent.trim().toLowerCase();
+    let path = '';
+    try {
+      path = new URL(a.getAttribute('href') || '', window.location.href).pathname.toLowerCase();
+    } catch {
+      path = '';
+    }
+    if (label === 'branch' || path.includes('/branch')) return 'branch';
+    if (label === 'contact' || path.includes('contact')) return 'contact';
+    if (label === 'help' || path === '/help' || path.startsWith('/help/')) return 'help';
+    return null;
+  }
+
+  navTools.querySelectorAll('.default-content-wrapper a').forEach((a) => {
+    if (a.closest('.nav-login')) return;
+    const name = iconNameForLink(a);
+    if (!name) return;
+    if (a.querySelector('span.icon')) return;
+    a.querySelectorAll('img').forEach((img) => img.remove());
+    const span = document.createElement('span');
+    span.className = `icon icon-${name}`;
+    span.setAttribute('aria-hidden', 'true');
+    a.prepend(span);
+  });
+
+  decorateIcons(navTools);
+}
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -182,9 +219,11 @@ export default async function decorate(block) {
     if (toolsList) {
       const loginBtn = document.createElement('li');
       loginBtn.className = 'nav-login';
-      loginBtn.innerHTML = '<a href="https://onlinebanking.nationwide.co.uk/AccessManagement/IdentifyCustomer/IdentifyCustomer">Log in</a>';
+      const loginHref = 'https://onlinebanking.nationwide.co.uk/AccessManagement/IdentifyCustomer/IdentifyCustomer';
+      loginBtn.innerHTML = '<a href="' + loginHref + '"><span class="icon icon-lock" aria-hidden="true"></span>Log in</a>';
       toolsList.append(loginBtn);
     }
+    decorateNavToolIcons(navTools);
   }
 
   // Insert search box after brand in the nav
